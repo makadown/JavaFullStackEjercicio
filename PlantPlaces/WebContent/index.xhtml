@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+<h:body>
+<ui:composition template="template.xhtml">
+   <ui:define name="title" >Plant Places : Promoviendo diversidad de plantas a traves de la educacion.</ui:define>
+   <ui:define name="top">Plant Places : Promoviendo diversidad de plantas a traves de la educacion.</ui:define>
+	<ui:define name="content">
+		   <h1>Welcome to PlantPlaces.com!</h1>
+		    Promoting plant diversity through education.
+		   <br/>
+		    <em>
+		    <h:outputLabel value="#{applicationInfo.slogan}"/>
+		    </em>
+		    <br/><br/>
+		    Teclea nombre de planta y presiona el boton Search.
+		<h:form >
+		
+		  <p:autoComplete value="#{plant.name}" completeMethod="#{searchPlants.completePlants}" />
+		  <p:commandButton value="Submit" actionListener="#{searchPlants.execute}"/>
+		  
+		</h:form>
+		
+		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+  		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+ 		<h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
+ 		a collaborative effort of numerous regional and national horticulture 
+ 		professionals and organizations. Plants on this database have been selected for 
+ 		their excellent performance and years of service. Promoting diversity in the 
+ 		landscape gives gardeners, landscapers and plant propagators / nurserymen the 
+ 		opportunity to expand with a wider variety and selection of outstanding plants 
+ 		and helps to alleviate monotonous monocultures both aesthetically and 
+ 		disease-wise.</h4>
+		  
+		    <br/><br/>
+		    <h:link value="Contact Us" outcome="contactUs" />
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>
