@@ -18,4 +18,11 @@ public interface IPlantService {
 	 * @return Una colección de plantas que coinciden con el filtro.
 	 */
 	public List<Plant> filterPlants(String filter);
+
+	/**
+	 * Guarda la planta y efectua una validación
+	 * @param plant La planta que persiste
+	 * @throws Exception Error que arroja si no puede guardar.
+	 */
+	void save(Plant plant) throws Exception;
 }

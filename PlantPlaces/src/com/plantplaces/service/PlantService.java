@@ -38,7 +38,7 @@ public class PlantService implements IPlantService {
 	 * */
 
 	@Inject
-	IPlantDAO plantDAO;	
+	private IPlantDAO plantDAO;	
 	private List<Plant> allPlants;
 	
 	@Override
@@ -61,6 +61,23 @@ public class PlantService implements IPlantService {
 			}
 		}
 		return returnPlants;
+	}
+	
+	public void save(Plant plant) throws Exception {
+		
+		if( plant.getGenus()==null || plant.getGenus().isEmpty())
+		{
+			throw new Exception("Genus required");
+		}
+		plantDAO.insert(plant);
+	}
+
+	public IPlantDAO getPlantDAO() {
+		return plantDAO;
+	}
+
+	public void setPlantDAO(IPlantDAO plantDAO) {
+		this.plantDAO = plantDAO;
 	}
 
 }
