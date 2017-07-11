@@ -8,12 +8,19 @@ import javax.inject.Named;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;*/
 
+import org.apache.log4j.Logger;
+
 import com.plantplaces.dto.Plant;
 
+/**
+ * Esta clase implementa funcionalidad de DAO con datos "hard code"
+ * @author makadown
+ *
+ */
 @Named("plantDAO")
 public class PlantDAOStub implements IPlantDAO {
 	
-	//static final Logger log = Logger.getLogger(PlantDAOStub.class);
+	static final Logger log = Logger.getLogger(PlantDAOStub.class);
 
 	@Override
 	public List<Plant> fetchPlants() {
@@ -56,9 +63,8 @@ public class PlantDAOStub implements IPlantDAO {
 
 	}
 
-	public void insert(Plant plant) throws Exception {
-		// TODO Auto-generated method stub
-		//log.warn("Inserting to stub; this does NOT persist the item"); 
+	public void insert(Plant plant) throws Exception { 
+		log.warn("Inserting to stub; this does NOT persist the item"); 
 	}
 
 	@Override

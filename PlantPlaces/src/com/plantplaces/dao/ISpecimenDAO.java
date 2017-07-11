@@ -1,6 +1,6 @@
 package com.plantplaces.dao;
 
-public interface ISpecimentDAO {
+public interface ISpecimenDAO {
 	public void save();
 
 }

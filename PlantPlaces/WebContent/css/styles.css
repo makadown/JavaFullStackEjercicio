@@ -1,5 +1,12 @@
 @CHARSET "ISO-8859-1";
 
+body {
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+    color: #616161;
+}
+
 	#top {
 		position:fixed;
 		vertical-align: top;

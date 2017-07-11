@@ -6,6 +6,11 @@
 	   					   http://www.springframework.org/schema/context
 	   					   http://www.springframework.org/schema/context/spring-context.xsd">
 
+<!-- Aqui la clase PlantHbmDAO se aperinga el alias en la inyeccion en PlantService -->
+    <bean id="PlantHbmDAO" name="plantDAO"  class="com.plantplaces.dao.PlantHbmDAO"/>
+    
+    <!-- Si pongo esto primero, la clase PlanDAOStub le gana a la clase PlantHbmDAO la
+    "supremacia" por el alias en la inyeccion en PlantService -->
     <context:component-scan base-package="com.plantplaces"/>
 
 </beans>
