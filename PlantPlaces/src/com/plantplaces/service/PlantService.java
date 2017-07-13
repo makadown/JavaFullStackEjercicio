@@ -1,14 +1,22 @@
 package com.plantplaces.service;
 
-import java.util.*;
-
-import com.plantplaces.dao.*;
-import com.plantplaces.dto.*;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.inject.*;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
+
+import com.plantplaces.dao.IPlantDAO;
+import com.plantplaces.dao.ISpecimenDAO;
+import com.plantplaces.dto.Photo;
+import com.plantplaces.dto.Plant;
+import com.plantplaces.dto.Specimen;
 
 @Named
 @ManagedBean
@@ -41,6 +49,18 @@ public class PlantService implements IPlantService {
 	private IPlantDAO plantDAO;	
 	private List<Plant> allPlants;
 	
+	@Inject
+	private ISpecimenDAO specimenDAO;
+	/*
+	@Inject
+	private IFileDAO fileDAO;
+	
+	@Inject
+	private IPhotoDAO photoDAO;
+	
+	@Inject
+	private JMSBean jmsBean;*/
+	
 	@Override
 	public List<Plant> filterPlants(String filter) 
 	{
@@ -63,6 +83,7 @@ public class PlantService implements IPlantService {
 		return returnPlants;
 	}
 	
+	@Override
 	public void save(Plant plant) throws Exception {
 		
 		if( plant.getGenus()==null || plant.getGenus().isEmpty())
@@ -70,7 +91,13 @@ public class PlantService implements IPlantService {
 			throw new Exception("Genus required");
 		}
 		plantDAO.insert(plant);
-	}
+	} 
+	
+	 
+	
+	public void save(Specimen specimen) throws Exception {
+		specimenDAO.save(specimen);
+	} 
 
 	public IPlantDAO getPlantDAO() {
 		return plantDAO;
@@ -78,6 +105,59 @@ public class PlantService implements IPlantService {
 
 	public void setPlantDAO(IPlantDAO plantDAO) {
 		this.plantDAO = plantDAO;
+	}
+	
+	@Override
+	public List<Plant> fetchPlants(Plant plant) {
+		List<Plant> plants = plantDAO.fetchPlants(plant);
+		return plants;
+	}
+	
+	
+
+	@Override
+	public void loadSpecimens(Plant plant) {
+
+/*		List<Specimen> specimens = specimenDAO.fetchByPlantId(plant.getGuid());
+		plant.setSpecimens(specimens);*/
+		
+	}
+	
+	@Override
+	public void savePhoto(Photo photo, InputStream inputStream) throws Exception {
+		/*File directory = new File("/git/PlantPlaces/WebContent/resources/images");
+		String uniqueImageName = getUniqueImageName();
+		File file = new File(directory, uniqueImageName);
+		fileDAO.save(inputStream, file);
+		
+		jmsBean.submit(file.toString());
+
+		File thumbnailDirectory = new File("/git/PlantPlaces/WebContent/resources/thumbnails");
+		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
+
+		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
+		
+		photo.setUri(uniqueImageName);
+		// eventually, save the photo to the database.
+		photoDAO.save(photo);*/
+	}
+
+	private String getUniqueImageName() {
+		// TODO Auto-generated method stub
+		String imagePrefix = "plantPlaces";
+		String imageSuffix = ".jpg";
+		String middle ="";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmss");
+		middle = sdf.format(new Date());
+		
+		return imagePrefix + middle + imageSuffix;
+	}
+	
+	
+	@Override
+	public List<Photo> fetchPhotos(Specimen specimen) {
+		return null; // photoDAO.fetchPhotos(specimen);
 	}
 
 }

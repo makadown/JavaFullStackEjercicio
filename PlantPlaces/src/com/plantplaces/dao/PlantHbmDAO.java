@@ -15,8 +15,12 @@ public class PlantHbmDAO implements IPlantDAO {
 
 	@Override
 	public List<Plant> fetchPlants() {
-       
-		return null;
+		 Session session = HibernateUtil.getSessionFactory().openSession();
+		 query = session.createQuery("from Plant");
+		 List list = query.list();
+	     List<Plant> plantas = Collections.checkedList( list, Plant.class);
+	        
+	     return plantas;
 	}
 
 	@Override
@@ -27,11 +31,15 @@ public class PlantHbmDAO implements IPlantDAO {
 	         *    usamos el nombre de la clase en Plant.hbm.xml 
 	         *    en este caso com.plantplaces.dto.Plant (Plant)  
 	         */
-	        query = session.createQuery("from Plant where common = :common");
-	        // createQuery.setParameter("common", plant.getCommon());
-	        query.setProperties(plant); /* esta linea asocia directamente la clase con 
+	        query = session.createQuery("from Plant where common like :common");
+	        query.setParameter("common", "%" + plant.getCommon() + "%");
+	        //query.setProperties(plant); 
+	        /* NOTA:  query.setProperties(plant); asocia directamente la clase con 
 	        el session porque automaticamente identifica el campo requerido (common), 
-	        haciendo una mejora a la instruccion que esta arriba comentada (createQuery.setParameter) */
+	        haciendo una mejora a la instruccion que esta arriba comentada (createQuery.setParameter) 
+	        PERO al hacer una busqueda de tipo LIKE necesitamos los caracteres necesarios (%) en 
+	        setParameter(), lo que no se puede hacer en setProperties.
+	        */
 	        
 			List list = query.list();
 	        List<Plant> plantas = Collections.checkedList( list, Plant.class);

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14991230214970" configfile="/PlantPlaces/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.html" x="180" y="19" id="pf14991915253100" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14991915253101" path="index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="results.xhtml" x="60" y="168" id="pf14991915253112" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14991915253101" path="results.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="noresults.xhtml" x="264" y="168" id="pf14992130387473" path="/noresults.xhtml"/>
-  <links id="pf14991915253101" target="pf14991915253112" source="pf14991915253100" outcome="search"/>
+  <nodes xsi:type="pageflow:PFPage" name="noresults.xhtml" x="122" y="754" id="pf14992130387473" path="/noresults.xhtml"/>
 </pageflow:Pageflow>

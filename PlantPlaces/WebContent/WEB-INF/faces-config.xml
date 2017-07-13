@@ -9,16 +9,20 @@
 </application>
 
 <!-- por alguna razón esto no está jalando -->
+<!-- 
 <navigation-rule>
-	<from-view-id>index.xhtml</from-view-id>
-	<navigation-case>
-	    <from-outcome>search</from-outcome>
-		<to-view-id>results.xhtml</to-view-id>	
-	</navigation-case>
-	<navigation-case>
-	    <from-outcome>noresults</from-outcome>
-		<to-view-id>noresults.xhtml</to-view-id>	
-	</navigation-case>
-</navigation-rule>
+		<from-view-id>index.xhtml</from-view-id>
+		<navigation-case>
+			
+			<from-outcome>search</from-outcome>
+			<to-view-id>results.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			
+			<from-outcome>noresults</from-outcome>
+			<to-view-id>noresults.xhtml</to-view-id>
+		</navigation-case>
 
+	</navigation-rule>
+	 -->
 </faces-config>

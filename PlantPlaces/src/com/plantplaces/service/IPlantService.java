@@ -1,5 +1,6 @@
 package com.plantplaces.service;
 
+import java.io.InputStream;
 import java.util.*;
 import com.plantplaces.dto.*;
 
@@ -25,4 +26,13 @@ public interface IPlantService {
 	 * @throws Exception Error que arroja si no puede guardar.
 	 */
 	void save(Plant plant) throws Exception;
+	void save(Specimen specimen) throws Exception;
+
+	public List<Plant> fetchPlants(Plant plant);
+
+	void loadSpecimens(Plant plant);
+
+	void savePhoto(Photo photo, InputStream inputStream) throws Exception;
+
+	List<Photo> fetchPhotos(Specimen specimen);
 }
