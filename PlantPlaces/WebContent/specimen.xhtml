@@ -12,10 +12,10 @@
 	<ui:define name="content">
 		<h1>Specimen</h1>
 		<em><h:outputLabel value="#{specimenVO.plant.common}" /></em><br/>	
-		<!-- 
+		 
 		
 		<p:dataTable id="showSpecimens" var="specimenResult" value="#{specimenVO.plant.specimens}" selectionMode="single"  rowKey="#{specimenResult.id}">
-			<p:ajax event="rowSelect" listener="  #  {  specimenVO   .  onRowSelect  } "   />
+			<p:ajax event="rowSelect" listener="#{specimenVO.onRowSelect}"/>
 			<p:column headerText="ID">
 				<h:outputText value="#{specimenResult.id}"/>
 			</p:column>
@@ -35,7 +35,7 @@
 				<h:outputText value="#{specimenResult.plantedDate}"/>
 			</p:column>
 		</p:dataTable>
--->
+ 
 	<h:form>
 			<p:growl id="growl" showDetail="true" sticky="false" />
 			<div class="inputData">
@@ -48,23 +48,23 @@
 			<p:commandButton value="Submit" actionListener="#{specimenVO.save}" update="growl"/><br />
 
 		</h:form>
-		<!-- 
+		 <!-- 
 		<img src="images/image.jpg"></img>
 	<p:fieldset legend="Add a Photo to the Specimen"> 
 		<h:form enctype="multipart/form-data">
 		    <p:growl id="messages" showDetail="true" />
 		 
-		 	<p:outputLabel value="Date Taken"/><p:calendar id="dateTaken" value="#{specimenVO.photo.dateTaken}"/><br/>
+		 	<p:outputLabel value="Date Taken"/><p:calendar id="dateTaken" value="# { specimenVO . photo.dateTaken}"/><br/>
 		 	<p:outputLabel value="Contributor"/><p:inputText value="#{specimenVO.photo.contributor}"/><br/>
 		    <p:fileUpload value="#{specimenVO.file}" mode="simple" skinSimple="true"/>
 		 
-		    <p:commandButton value="Submit" ajax="false" actionListener=" #  {  specimenVO .  upload } "/>
+		    <p:commandButton value="Submit" ajax="false" actionListener=" # { specimenVO . upload} "/>
 		</h:form>
 		</p:fieldset>
 
 
 
-<p:galleria value="#{specimenVO.photos}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+<p:galleria value=" # { specimenVO . photos}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
     <p:graphicImage name="images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 </p:galleria>
 

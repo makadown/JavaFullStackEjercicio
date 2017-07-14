@@ -9,6 +9,7 @@
 <!-- Aqui la clase PlantHbmDAO se aperinga el alias en la inyeccion en PlantService -->
     <bean id="PlantHbmDAO" name="plantDAO"  class="com.plantplaces.dao.PlantHbmDAO"/>
     <bean id="SpecimenHbmDAO" name="specimenDAO"  class="com.plantplaces.dao.PlantHbmDAO"/>
+    <bean id="PhotoHbmDAO" name="photoDAO"  class="com.plantplaces.dao.PhotoHbmDAO"/>
     
     
     <!-- Si pongo esto primero, la clase PlanDAOStub le gana a la clase PlantHbmDAO la

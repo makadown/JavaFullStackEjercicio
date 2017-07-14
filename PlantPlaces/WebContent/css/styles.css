@@ -48,14 +48,23 @@ body {
 		display:none;
 	}
 	
+	/* <inputData> 
+	   Esta sección es para hacer un truco distanciando adecuadamente entre labels e inputs que
+	   se encuentran juntos para dar un formato adecuado que sea agradable a la vista.
+	*/
+	
 	.inputData {
 		background-color:#d6bd91;
 	}
 	
 	.inputData input {
+	    /* Desde PrimeFaces p:inputText */
 		margin-left: 9em;
 	}
 	
 	.inputData label {
+	    /* Desde JSF h:outputLabel */
 		position:absolute;
 	}
+	
+	/* </inputData> */

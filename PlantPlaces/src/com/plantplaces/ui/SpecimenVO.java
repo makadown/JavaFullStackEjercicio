@@ -55,7 +55,7 @@ public class SpecimenVO {
 	}
 
 	private void loadSpecimens() {
-		// TODO Auto-generated method stub
+		 
 		plantService.loadSpecimens(plant);
 	}
 

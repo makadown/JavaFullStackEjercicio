@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Named;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.plantplaces.dto.Specimen;
 
@@ -14,20 +15,20 @@ import com.plantplaces.dto.Specimen;
  * @author Win7
  *
  */
+@SuppressWarnings("all")
 @Named
 public class SpecimenHbmDAO /*extends PlantPlacesHbmDAO<Specimen>*/ implements ISpecimenDAO {
 	
 
-	
-	@Override
+	@Override 
 	public List<Specimen> fetchByPlantId(int plantId) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		// create the query
-		org.hibernate.Query query = session.createQuery("from Specimen where plantId = :plantId");
+		// create the query 
+		Query query = session.createQuery("from Specimen where plantId = :plantId");
 		query.setParameter("plantId", plantId);
-		// query.setProperties(plant);
-		@SuppressWarnings("rawtypes")
-		List list = query.list();
+		// query.setProperties(plant); 
+		List<Specimen> list = query.list();
+		
 		
 		List<Specimen> specimens = Collections.checkedList(list, Specimen.class);
 		
@@ -52,7 +53,7 @@ public class SpecimenHbmDAO /*extends PlantPlacesHbmDAO<Specimen>*/ implements I
 
 	@Override
 	public void save(Specimen specimen) throws Exception {
-		// TODO Auto-generated method stub
+		insert(specimen);
 		
 	}
 

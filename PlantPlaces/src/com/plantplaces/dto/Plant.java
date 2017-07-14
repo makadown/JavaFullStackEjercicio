@@ -61,8 +61,7 @@ public class Plant {
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
+	public String toString() { 
 		return genus + "  " + species + " " + cultivar + " " + common;
 	}
 

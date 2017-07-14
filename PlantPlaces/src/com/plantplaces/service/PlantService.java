@@ -118,8 +118,8 @@ public class PlantService implements IPlantService {
 	@Override
 	public void loadSpecimens(Plant plant) {
 
-/*		List<Specimen> specimens = specimenDAO.fetchByPlantId(plant.getGuid());
-		plant.setSpecimens(specimens);*/
+ 		List<Specimen> specimens = specimenDAO.fetchByPlantId(plant.getGuid());
+		plant.setSpecimens(specimens); 
 		
 	}
 	
