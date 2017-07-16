@@ -112,10 +112,11 @@ public class SpecimenVO {
     }
      
     public void upload() {
-    	if (specimen.getId() == 0)  {
+    	/*if (specimen.getId() == 0)  {
             FacesMessage message = new FacesMessage("You have not yet selected a specimen.  Please select one before saving the image.");
             FacesContext.getCurrentInstance().addMessage(null, message);    		
-    	} else if (file != null) {
+    	} 
+    	else*/ if (file != null) {
         	try {
 				InputStream inputstream = file.getInputstream();
 				// set the specimen ID.

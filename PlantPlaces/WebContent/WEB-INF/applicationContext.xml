@@ -5,7 +5,12 @@
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
 	   					   http://www.springframework.org/schema/context
 	   					   http://www.springframework.org/schema/context/spring-context.xsd">
-
+	   					   
+<bean id="jmsConnectionFactory" 
+      class="org.apache.activemq.ActiveMQConnectionFactory">
+      <property name="brokerURL" value="tcp://localhost:61616"/>
+   </bean>
+   
 <!-- Aqui la clase PlantHbmDAO se aperinga el alias en la inyeccion en PlantService -->
     <bean id="PlantHbmDAO" name="plantDAO"  class="com.plantplaces.dao.PlantHbmDAO"/>
     <bean id="SpecimenHbmDAO" name="specimenDAO"  class="com.plantplaces.dao.PlantHbmDAO"/>
@@ -15,5 +20,12 @@
     <!-- Si pongo esto primero, la clase PlanDAOStub le gana a la clase PlantHbmDAO la
     "supremacia" por el alias en la inyeccion en PlantService -->
     <context:component-scan base-package="com.plantplaces"/>
-
+    
+    <!-- 
+    <bean name="plantServiceExporter"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+        <property name="service" ref="plantService" />
+        <property name="serviceInterface" value="com.plantplaces.service.IPlantService" />
+	</bean>
+-->
 </beans>

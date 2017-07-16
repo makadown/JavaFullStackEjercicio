@@ -1,5 +1,6 @@
 package com.plantplaces.service;
 
+import java.io.File;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,11 +13,16 @@ import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
 
+import com.plantplaces.dao.IFileDAO;
+import com.plantplaces.dao.IPhotoDAO;
 import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
+import com.plantplaces.service.OsUtils.OSType;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 @Named
 @ManagedBean
@@ -51,15 +57,15 @@ public class PlantService implements IPlantService {
 	
 	@Inject
 	private ISpecimenDAO specimenDAO;
-	/*
+	 
 	@Inject
 	private IFileDAO fileDAO;
 	
 	@Inject
 	private IPhotoDAO photoDAO;
-	
+	 
 	@Inject
-	private JMSBean jmsBean;*/
+	private JMSBean jmsBean; 
 	
 	@Override
 	public List<Plant> filterPlants(String filter) 
@@ -125,21 +131,25 @@ public class PlantService implements IPlantService {
 	
 	@Override
 	public void savePhoto(Photo photo, InputStream inputStream) throws Exception {
-		/*File directory = new File("/git/PlantPlaces/WebContent/resources/images");
+		String ruta = "/git/PlantPlaces/WebContent/resources/images";
+		String rutaThumb = "/git/PlantPlaces/WebContent/resources/thumbnails";
+		 
+		File directory = new File(ruta);
 		String uniqueImageName = getUniqueImageName();
 		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
-		
-		jmsBean.submit(file.toString());
+		/*
+		jmsBean.submit(file.toString()); 
 
-		File thumbnailDirectory = new File("/git/PlantPlaces/WebContent/resources/thumbnails");
+		File thumbnailDirectory = new File(rutaThumb);
 		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
 
 		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
 		
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
-		photoDAO.save(photo);*/
+		photoDAO.save(photo); 
+		*/
 	}
 
 	private String getUniqueImageName() {
