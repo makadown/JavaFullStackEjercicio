@@ -16,7 +16,7 @@ public class PhotoHbmDAO extends PlantPlacesHbmDAO<Photo> implements IPhotoDAO {
 	
 	@Override
 	public void insert(Session session, Photo dto) throws Exception {
-		// TODO Auto-generated method stub
+	 
 		session.save(dto);
 	}
 

@@ -62,26 +62,26 @@
 
 			</h:form>
 			<br/>
-			<!-- 
-		<img src="images/image.jpg"></img>
-	<p:fieldset legend="Add a Photo to the Specimen"> -->
+			 
+		<img src="images/image.jpg" width="25px" height="25px"></img>
+	<p:fieldset legend="Add a Photo to the Specimen"> 
 			<h:form enctype="multipart/form-data">
 				<p:growl id="messages" showDetail="true" />
 
-				<!--
+				 
 				<p:outputLabel value="Date Taken" />
 				<p:calendar id="dateTaken" value="#{specimenVO.photo.dateTaken}" />
 				<br />
 				<p:outputLabel value="Contributor" />
 				<p:inputText value="#{specimenVO.photo.contributor}" />
-				<br /> -->
+				<br /> 
 				<p:fileUpload value="#{specimenVO.file}" mode="simple"
 					skinSimple="true" />
 
 				<p:commandButton value="Submit" ajax="false"
 					actionListener="#{specimenVO.upload}" />
 			</h:form>
-			<!-- 	</p:fieldset> -->
+		 </p:fieldset>  
 
 
 			<!-- 

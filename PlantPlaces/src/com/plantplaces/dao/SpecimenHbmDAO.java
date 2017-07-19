@@ -17,7 +17,7 @@ import com.plantplaces.dto.Specimen;
  */
 @SuppressWarnings("all")
 @Named
-public class SpecimenHbmDAO /*extends PlantPlacesHbmDAO<Specimen>*/ implements ISpecimenDAO {
+public class SpecimenHbmDAO  extends PlantPlacesHbmDAO<Specimen> implements ISpecimenDAO {
 	
 
 	@Override 
@@ -35,26 +35,12 @@ public class SpecimenHbmDAO /*extends PlantPlacesHbmDAO<Specimen>*/ implements I
 		return specimens;
 	}
 
-	public void insert(Specimen specimen) throws Exception {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
-		
-		session.save(specimen);
-		
-		session.getTransaction().commit();
-	}
-	
-	/*
+	 
 	@Override
 	public void insert(Session session, Specimen dto) throws Exception {
-		// TODO Auto-generated method stub
+		 
 		session.save(dto);
-	}*/
-
-	@Override
-	public void save(Specimen specimen) throws Exception {
-		insert(specimen);
-		
-	}
+	} 
+ 
 
 }

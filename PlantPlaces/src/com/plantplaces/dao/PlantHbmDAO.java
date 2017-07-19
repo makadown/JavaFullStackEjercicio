@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
 import com.plantplaces.dto.Plant;
 
 @SuppressWarnings({"rawtypes","unchecked"})
-public class PlantHbmDAO implements IPlantDAO {
+public class PlantHbmDAO  extends PlantPlacesHbmDAO<Plant>  implements IPlantDAO {
 
 	private Query query;
 
@@ -47,26 +47,21 @@ public class PlantHbmDAO implements IPlantDAO {
 	        return plantas;
 	}
 	
-	
-	@Override
-	public void insert(Plant plant) throws Exception {
-		// guardar planta en BD
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
-		
-		session.save(plant);
-		
-		session.getTransaction().commit();
-	}
+	 
 
 	@Override
 	public void update(Plant plant) throws Exception {
 
-	}
-
+	} 
+ 
 	@Override
 	public void delete(Plant plant) throws Exception {
 
+	}
+
+	@Override
+	public void insert(Session session, Plant plant) throws Exception {
+		session.save(plant); 
 	}
 
 }

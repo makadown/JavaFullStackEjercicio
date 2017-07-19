@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;*/
 
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 
 import com.plantplaces.dto.Plant;
 
@@ -83,7 +84,6 @@ public class PlantDAOStub implements IPlantDAO {
 		return new ArrayList<Plant>();
 	}
 
-	/*
 	@Override
 	public void insert(Session session, Plant plant) throws Exception {
 		// TODO Auto-generated method stub
@@ -94,6 +94,5 @@ public class PlantDAOStub implements IPlantDAO {
 	public void save(Plant plant) throws Exception {
 		// TODO Auto-generated method stub
 		
-	}*/
-
+	} 
 }

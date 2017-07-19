@@ -5,7 +5,9 @@ import org.hibernate.Session;
 public abstract class PlantPlacesHbmDAO<T> {
 	
 	/**
-	 * Create a hibernate session and atomic unit; make it available to the subclass for persistence
+	 * Create a hibernate session and atomic unit; make it available to the subclass for persistence.
+	 * Este metodo casualmente hace CHECK con un metodo de las demas interfaces de modo que no es necesario
+	 * volver a teclear este metodo en la implementacion de cada interfaz
 	 * @param dto
 	 * @throws Exception
 	 */

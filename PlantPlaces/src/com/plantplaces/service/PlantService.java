@@ -19,8 +19,7 @@ import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
-import com.plantplaces.dto.Specimen;
-import com.plantplaces.service.OsUtils.OSType;
+import com.plantplaces.dto.Specimen; 
 
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -96,7 +95,7 @@ public class PlantService implements IPlantService {
 		{
 			throw new Exception("Genus required");
 		}
-		plantDAO.insert(plant);
+		plantDAO.save(plant);
 	} 
 	
 	 
@@ -145,11 +144,11 @@ public class PlantService implements IPlantService {
 		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
 
 		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
-		
+		*/
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
 		photoDAO.save(photo); 
-		*/
+		 
 	}
 
 	private String getUniqueImageName() {
