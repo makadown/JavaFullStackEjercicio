@@ -40,7 +40,7 @@ public class SpecimenVO {
 	
 	@Inject
 	private IPlantService plantService;
-	
+	 
 	private List<Photo> photos;
 	
 	private UploadedFile file;

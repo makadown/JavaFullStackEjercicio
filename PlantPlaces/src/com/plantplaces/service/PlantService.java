@@ -19,9 +19,7 @@ import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
-import com.plantplaces.dto.Specimen; 
-
-import net.coobird.thumbnailator.Thumbnails;
+import com.plantplaces.dto.Specimen;
 
 @Named
 @ManagedBean
@@ -166,7 +164,7 @@ public class PlantService implements IPlantService {
 	
 	@Override
 	public List<Photo> fetchPhotos(Specimen specimen) {
-		return null; // photoDAO.fetchPhotos(specimen);
+		return photoDAO.fetchPhotos(specimen);
 	}
 
 }

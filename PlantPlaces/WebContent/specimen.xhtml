@@ -84,12 +84,12 @@
 		 </p:fieldset>  
 
 
-			<!-- 
-<p:galleria value=" # { specimenVO . photos}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-    <p:graphicImage name="images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+	 
+<p:galleria value="#{specimenVO.photos}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+    <p:graphicImage name="/resources/images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 </p:galleria>
 
- -->
+ 
 
 			<h:link value="Contact Us" outcome="contactUs" />
 		</ui:define>
