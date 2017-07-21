@@ -61,35 +61,42 @@
 				<br />
 
 			</h:form>
-			<br/>
-			 
-		<img src="images/image.jpg" width="25px" height="25px"></img>
-	<p:fieldset legend="Add a Photo to the Specimen"> 
-			<h:form enctype="multipart/form-data">
-				<p:growl id="messages" showDetail="true" />
-
-				 
-				<p:outputLabel value="Date Taken" />
-				<p:calendar id="dateTaken" value="#{specimenVO.photo.dateTaken}" />
-				<br />
-				<p:outputLabel value="Contributor" />
-				<p:inputText value="#{specimenVO.photo.contributor}" />
-				<br /> 
-				<p:fileUpload value="#{specimenVO.file}" mode="simple"
-					skinSimple="true" />
-
-				<p:commandButton value="Submit" ajax="false"
-					actionListener="#{specimenVO.upload}" />
-			</h:form>
-		 </p:fieldset>  
+			<br />
 
 
-	 
-<p:galleria value="#{specimenVO.photos}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-    <p:graphicImage name="/resources/images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
-</p:galleria>
+			<!-- al no poner la diagonal '/' antes de images, busca en el folder donde
+			 se encuentra este xhtml, en este caso, en WebContent -->
+			<img src="images/image.jpg" width="25px" height="25px"></img>
+			<p:fieldset legend="Add a Photo to the Specimen">
+				<h:form enctype="multipart/form-data">
+					<p:growl id="messages" showDetail="true" />
 
- 
+
+					<p:outputLabel value="Date Taken" />
+					<p:calendar id="dateTaken" value="#{specimenVO.photo.dateTaken}" />
+					<br />
+					<p:outputLabel value="Contributor" />
+					<p:inputText value="#{specimenVO.photo.contributor}" />
+					<br />
+					<p:fileUpload value="#{specimenVO.file}" mode="simple"
+						skinSimple="true" />
+
+					<p:commandButton value="Submit" ajax="false"
+						actionListener="#{specimenVO.upload}" />
+				</h:form>
+			</p:fieldset>
+
+
+			<!-- al poner la diagonal '/' antes de images, busca en el folder WebContent/resources
+ haciendo dicho folder como el raiz de todo recurso y solo escribir diagonal primero -->
+			<br /> Imagenes:
+<p:galleria value="#{specimenVO.photos}" var="image" panelWidth="500"
+				panelHeight="313" showCaption="true">
+				<p:graphicImage name="/images/#{image}"
+					alt="Image Description for #{image}" title="#{image}" />
+			</p:galleria>
+
+
 
 			<h:link value="Contact Us" outcome="contactUs" />
 		</ui:define>

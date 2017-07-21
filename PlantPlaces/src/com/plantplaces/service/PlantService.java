@@ -21,6 +21,8 @@ import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 @Named
 @ManagedBean
 @Scope("session")
@@ -137,12 +139,12 @@ public class PlantService implements IPlantService {
 		fileDAO.save(inputStream, file);
 		/*
 		jmsBean.submit(file.toString()); 
-
+*/
 		File thumbnailDirectory = new File(rutaThumb);
 		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
-
+ 
 		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
-		*/
+		 
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
 		photoDAO.save(photo); 

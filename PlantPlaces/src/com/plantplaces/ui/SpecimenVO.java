@@ -114,7 +114,7 @@ public class SpecimenVO {
     public void upload() {
     	if (specimen.getId() == 0)  {
             FacesMessage message = new FacesMessage("You have not yet selected a specimen.  Please select one before saving the image.");
-            FacesContext.getCurrentInstance().addMessage(null, message);    		
+            FacesContext.getCurrentInstance().addMessage(null, message);  
     	} 
     	else if (file != null) {
         	try {
@@ -127,6 +127,8 @@ public class SpecimenVO {
 				
 	            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
 	            FacesContext.getCurrentInstance().addMessage(null, message);
+	      		
+	            photos = plantService.fetchPhotos(specimen);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
