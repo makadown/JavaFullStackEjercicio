@@ -140,18 +140,13 @@ public class PlantService implements IPlantService {
 		String uniqueImageName = getUniqueImageName();
 		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
-		/*
+		 
 		jmsBean.submit(file.toString()); 
-*/
+ 
 		File thumbnailDirectory = new File(rutaThumb);
 		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
  
-		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
-		
-		/*opcional*/
-		BufferedImage watermark = ImageIO.read(new File(ruta, "Watermark.png"));
-		Thumbnails.of(file).scale(1).watermark(Positions.BOTTOM_RIGHT, watermark, 0.9f).toFile(file);
-		 
+		Thumbnails.of(file).size(100, 100).toFile(thumbnail); 	
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
 		photoDAO.save(photo); 
