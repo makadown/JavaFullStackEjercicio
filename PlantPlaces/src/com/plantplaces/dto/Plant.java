@@ -21,7 +21,7 @@ public class Plant {
 	
 	
 	public String getGenus() {
-		return genus;
+		return genus== null? "": genus;
 	}
 
 	public void setGenus(String genus) {
@@ -29,7 +29,7 @@ public class Plant {
 	}
 
 	public String getSpecies() {
-		return species;
+		return species== null? "": species;
 	}
 
 	public void setSpecies(String species) {
@@ -37,7 +37,7 @@ public class Plant {
 	}
 
 	public String getCultivar() {
-		return cultivar;
+		return cultivar== null? "": cultivar;
 	}
 
 	public void setCultivar(String cultivar) {
@@ -45,7 +45,7 @@ public class Plant {
 	}
 
 	public String getCommon() {
-		return common;
+		return common== null? "": common;
 	}
 
 	public void setCommon(String common) {
@@ -53,7 +53,7 @@ public class Plant {
 	}
 
 	public String getName() {
-		return name;
+		return name== null? "": name;
 	}
 
 	public void setName(String name) {
@@ -62,7 +62,7 @@ public class Plant {
 	
 	@Override
 	public String toString() { 
-		return genus + "  " + species + " " + cultivar + " " + common;
+		return getGenus() + "  " + getSpecies() + " " + getCultivar() + " " + getCommon();
 	}
 
 	public int getGuid() {
