@@ -1,6 +1,5 @@
 package com.plantplaces.service;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -9,11 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 import com.plantplaces.dao.IFileDAO;
 import com.plantplaces.dao.IPhotoDAO;
@@ -24,11 +23,10 @@ import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
 
 import net.coobird.thumbnailator.Thumbnails;
-import net.coobird.thumbnailator.geometry.Positions;
 
 @Named
 @ManagedBean
-@Scope("session")
+@Scope(value = "session",  proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class PlantService implements IPlantService {
 	
 	/* 

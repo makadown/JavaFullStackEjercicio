@@ -41,10 +41,20 @@ public class PlantJSONServlet extends HttpServlet  {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String filter = req.getParameter("filter");
+		
 		
 		Plant searchPlant = new Plant();
+		
+		if ( filter != null && !filter.isEmpty())
+		{
+			searchPlant.setCommon(filter);
+		}
+		else 
+		{
 		//valor dummy para probar servlet
-		searchPlant.setCommon("e");
+		  searchPlant.setCommon("e");
+		}
 		
 		
 		//obteniendo la lista de plantas	
