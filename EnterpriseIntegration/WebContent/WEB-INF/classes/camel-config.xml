@@ -1,0 +1,18 @@
+<!-- this is a spring XML file where we have Camel embedded -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+       
+  <!-- Here we define Camel, notice the namespace it uses -->
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+       <!-- Ruta camel para mover mensajes de inbox de activeMQ a su cola de outbox -->
+       <route id="inToOutRoute">
+       			<from uri="queuemanager:queue:photos"/>
+       			<log message="Ruteando el mensaje desde el queue inbots al autbots con dato ${body}"/>
+       			<to uri="queuemanager:queue:outbox"/>
+       </route>
+  </camelContext>     
+</beans>
