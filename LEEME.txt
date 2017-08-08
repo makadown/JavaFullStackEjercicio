@@ -1,0 +1,1 @@
+los proyectos principales de este workspace estan en c:\git
