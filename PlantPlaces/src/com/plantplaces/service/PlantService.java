@@ -131,8 +131,8 @@ public class PlantService implements IPlantService {
 	
 	@Override
 	public void savePhoto(Photo photo, InputStream inputStream) throws Exception {
-		String ruta = "/git/PlantPlaces/WebContent/resources/images";
-		String rutaThumb = "/git/PlantPlaces/WebContent/resources/thumbnails";
+		String ruta = "/Users/mserrano/git/JavaFullStackEjercicio/PlantPlaces/WebContent/resources/images";
+		String rutaThumb = "/Users/mserrano/git/JavaFullStackEjercicio/PlantPlaces/WebContent/resources/thumbnails";
 		 
 		File directory = new File(ruta);
 		String uniqueImageName = getUniqueImageName();
